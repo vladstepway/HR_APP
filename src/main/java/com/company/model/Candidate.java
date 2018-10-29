@@ -3,6 +3,9 @@ package com.company.model;
 
 import javax.validation.constraints.NotNull;
 
+/**
+ *
+ */
 public class Candidate {
     private int id;
     @NotNull
@@ -16,7 +19,8 @@ public class Candidate {
 
     public Candidate() {}
 
-    public Candidate(int id, String name, String surname, String birthday, Double expected_salary, String candidate_state) {
+    public Candidate(int id, String name, String surname, String birthday,
+                     Double expected_salary, String candidate_state) {
         this.id = id;
         this.name = name;
         this.surname = surname;

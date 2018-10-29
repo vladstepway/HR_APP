@@ -17,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import javax.validation.Valid;
 import java.util.List;
 
+/**
+ *
+ */
 @Controller
 public class InterviewController {
 
@@ -103,22 +106,19 @@ public class InterviewController {
 
     @ModelAttribute("vacancyIdList")
     public List<String> getVacancyIdList() {
-        List<String> idList = vacancyService.getVacanciesID();
-        // добавляем все id вакансий
-        return idList;
+//         добавляем все id вакансий
+        return vacancyService.getVacanciesID();
     }
 
     @ModelAttribute("vacancyPositionsList")
     public List<String> getVacancyPositionsList() {
-        List<String> positionList = vacancyService.getVacanciesPosition();
         // добавляем все id вакансий
-        return positionList;
+        return vacancyService.getVacanciesPosition();
     }
 
 
     @ModelAttribute("candidateIdList")
     public List<String> getCandidateIdList() {
-        List<String> idList = candidateService.getAllCandidatesID();
-        return idList;
+        return candidateService.getAllCandidatesID();
     }
 }

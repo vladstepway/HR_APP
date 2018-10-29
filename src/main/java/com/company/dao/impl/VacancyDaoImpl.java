@@ -70,14 +70,7 @@ public class VacancyDaoImpl implements VacancyDao {
 
     @Transactional
     public int updateVacancy(Vacancy vacancy) {
-        return jdbcTemplate.update("UPDATE vacancy SET " +
-                        "position = ?," +
-                        "salary_from = ?," +
-                        "salary_to = ?," +
-                        "vacancy_state = ?," +
-                        "experience_years_require = ?," +
-                        "developer_id = ?," +
-                        "where id = ?",
+        return jdbcTemplate.update(QUERY_TO_UPDATE_VACANCY,
                 vacancy.getPosition(),
                 vacancy.getSalary_from(),
                 vacancy.getSalary_to(),

@@ -11,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+/**
+ *
+ */
 @Controller
 @RequestMapping("/")
 public class SkillController {
@@ -28,7 +31,7 @@ public class SkillController {
 
     @RequestMapping(value = "skill/add")
     public String addPage(Model model) {
-        model.addAttribute("skill",new Skill());
+        model.addAttribute("skill", new Skill());
         return "skill/addSkill";
     }
 
@@ -54,7 +57,7 @@ public class SkillController {
         if (resp > 0) {
             skillModel.addAttribute("msg", "Skill  : " + name + " deleted successfully.");
         } else {
-            skillModel.addAttribute("msg", "Skill with id : " + name + " deletion failed.");
+            skillModel.addAttribute("msg", "Skill : " + name + " deletion failed.");
         }
         return "skill/allSkills";
     }

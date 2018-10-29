@@ -8,7 +8,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,9 +27,8 @@ public class CandidateDaoImpl implements CandidateDao {
 
     @Transactional
     public List<Candidate> getAllCandidates() {
-        List<Candidate> candidateList = jdbcTemplate.query("select * from candidate",
+        return jdbcTemplate.query("select * from candidate",
                 new CandidateRowMapper());
-        return candidateList;
     }
 
     @Transactional
@@ -61,15 +59,13 @@ public class CandidateDaoImpl implements CandidateDao {
     @Transactional
     public int updateCandidate(Candidate candidate) {
         String sql = "update candidate set name = ?, surname = ?, birthday = ?, expected_salary = ?,candidate_state= ? where id = ?";
-        int resp = jdbcTemplate.update(sql, candidate.getName(), candidate.getSurname(),
+        return jdbcTemplate.update(sql, candidate.getName(), candidate.getSurname(),
                 candidate.getBirthday(), candidate.getExpected_salary(), candidate.getCandidate_state(), candidate.getId());
-        return resp;
 
     }
 
     @Transactional
     public int deleteCandidate(int id) {
-        int resp = jdbcTemplate.update("delete from candidate where id = ?", id);
-        return resp;
+        return jdbcTemplate.update("delete from candidate where id = ?", id);
     }
 }

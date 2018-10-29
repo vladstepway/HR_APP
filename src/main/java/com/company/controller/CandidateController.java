@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
+/**
+ *
+ */
 @Controller
 @RequestMapping("/")
 public class CandidateController {
@@ -21,7 +24,7 @@ public class CandidateController {
     private CandidateService candidateService;
 
     @RequestMapping(value = "candidate/{id}", method = RequestMethod.GET)
-    public String getCandidate(@PathVariable int id, ModelMap candidateModel) {
+    public String getCandidate(@PathVariable final int id, ModelMap candidateModel) {
         candidateModel.addAttribute("candidate", candidateService.getCandidate(id));
         return "candidate/candidateInfo";
     }
@@ -34,14 +37,14 @@ public class CandidateController {
 
     @RequestMapping(value = "/candidate/add")
     public String addPage(Model model) {
-        model.addAttribute("candidate",new Candidate());
+        model.addAttribute("candidate", new Candidate());
         return "candidate/addCandidate";
     }
 
     @RequestMapping(value = "/candidate/add.do", method = RequestMethod.POST)
     public String addCandidate(@Valid Candidate candidate, BindingResult bindingResult,
                                ModelMap candidateModel) {
-        if(bindingResult.hasErrors()){
+        if (bindingResult.hasErrors()) {
             return "candidate/addCandidate";
         }
 
@@ -78,9 +81,9 @@ public class CandidateController {
 
     @RequestMapping(value = "candidate/update", method = RequestMethod.POST)
     public String updateCandidate(@Valid Candidate candidate, BindingResult bindingResult,
-                             ModelMap candidateModel) {
-        if(bindingResult.hasErrors()){
-            return "vacancy/updateVacancy";
+                                  ModelMap candidateModel) {
+        if (bindingResult.hasErrors()) {
+            return "candidate/updateCandidate";
         }
         candidateModel.addAttribute("candidate", candidate);
         int resp = candidateService.updateCandidate(candidate);
@@ -91,8 +94,8 @@ public class CandidateController {
                     candidateService.getAllCandidates());
             return "candidate/allCandidates";
         } else {
-            candidateModel.addAttribute("msg", "Candidate with id : " +  candidate.getId() + " updating failed.");
-            candidateModel.addAttribute("candidate", candidateService.getCandidate( candidate.getId()));
+            candidateModel.addAttribute("msg", "Candidate with id : " + candidate.getId() + " updating failed.");
+            candidateModel.addAttribute("candidate", candidateService.getCandidate(candidate.getId()));
             return "candidate/updateCandidate";
         }
     }
@@ -101,8 +104,6 @@ public class CandidateController {
     public List<String> getCandidateStateList() {
         return candidateService.getListOfStates();
     }
-
-
 
 
 }

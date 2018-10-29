@@ -1,7 +1,9 @@
 package com.company.controller;
 
+import java.util.List;
 
 import com.company.model.InterviewFeedback;
+
 import com.company.service.InterviewFeedbackService;
 import com.company.service.InterviewService;
 import com.company.service.UserService;
@@ -16,8 +18,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
-import java.util.List;
 
+
+/**
+ *
+ */
 @Controller
 public class InterviewFeedbackController {
 
@@ -106,17 +111,14 @@ public class InterviewFeedbackController {
     }
     @ModelAttribute("interviewIdList")
     public List<String> getInterviewIdList() {
-        List<String> idList = interviewService.getAllInterviewsID();
-        return idList;
+        return interviewService.getAllInterviewsID();
     }
     @ModelAttribute("interviewerIdList")
     public List<String> getInterviewerIdList() {
-        List<String> idList = userService.getInterviewerId();
-        return idList;
+        return userService.getInterviewerId();
     }
     @ModelAttribute("feedbackStatesList")
     public List<String> getFeedbackStatesList() {
-        List<String> idList = interviewFeedbackService.getFeedbackStates();
-        return idList;
+        return interviewFeedbackService.getFeedbackStates();
     }
 }

@@ -11,7 +11,7 @@ public interface CandidateDao {
     List<Candidate> getAllCandidates();
 
     List<String> getAllCandidatesID();
-    public List<String> getListOfStates();
+     List<String> getListOfStates();
     int addCandidate(Candidate candidate);
 
     int updateCandidate(Candidate candidate);

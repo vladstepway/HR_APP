@@ -13,8 +13,7 @@ public class PasswordValidator implements ConstraintValidator<Password, String> 
         if(password == null){
             return false;
         }
-        if (password.matches("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})")) return true;
-        else return false;
+        return password.matches("((?=.*\\d)(?=.*[a-z])(?=.*[A-Z]).{6,20})");
     }
 
 }

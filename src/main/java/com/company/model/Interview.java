@@ -1,7 +1,5 @@
 package com.company.model;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 import javax.validation.constraints.NotNull;
 
 public class Interview {

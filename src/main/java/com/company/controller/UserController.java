@@ -14,7 +14,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
 
-
+/**
+ *
+ */
 @Controller
 public class UserController {
 
@@ -54,7 +56,7 @@ public class UserController {
             return "user/allUsers";
         } else {
             userModel.addAttribute("msg", "User addition failed.");
-           return "user/addUser";
+            return "user/addUser";
         }
     }
 
@@ -69,39 +71,38 @@ public class UserController {
         }
         return "user/allUsers";
     }
+
     @RequestMapping(value = "/users/sorting/{order}/sortBy/surname", method = RequestMethod.GET)
     public String sortUserSurname(@PathVariable("order") String order, ModelMap userModel) {
-        if(order.equals("ASC")) {
+        if (order.equals("ASC")) {
             userModel.addAttribute("user", userService.getSortedUsersBySurname());
             userModel.addAttribute("order", "DESC");
-        }
-        else {
+        } else {
             userModel.addAttribute("user", userService.getSortedUsersDESCsurname());
             userModel.addAttribute("order", "ASC");
         }
         return "user/allUsers";
     }
+
     @RequestMapping(value = "/users/sorting/{order}/sortBy/name", method = RequestMethod.GET)
     public String sortUserName(@PathVariable("order") String order, ModelMap userModel) {
-        if(order.equals("ASC")) {
+        if (order.equals("ASC")) {
             userModel.addAttribute("user", userService.getSortedUsersByName());
             userModel.addAttribute("order", "DESC");
-
-        }
-        else {
+        } else {
             userModel.addAttribute("user", userService.getSortedUsersDESCname());
             userModel.addAttribute("order", "ASC");
         }
         return "user/allUsers";
     }
+
     @RequestMapping(value = "/users/sorting/{order}/sortBy/id", method = RequestMethod.GET)
     public String sortUserId(@PathVariable("order") String order, ModelMap userModel) {
-        if(order.equals("ASC")) {
+        if (order.equals("ASC")) {
             userModel.addAttribute("user", userService.getSortedUsersByID());
             userModel.addAttribute("order", "DESC");
 
-        }
-        else {
+        } else {
             userModel.addAttribute("user", userService.getSortedUsersDESCid());
             userModel.addAttribute("order", "ASC");
         }

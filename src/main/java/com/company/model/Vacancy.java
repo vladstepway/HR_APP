@@ -1,6 +1,5 @@
 package com.company.model;
 
-import javax.validation.constraints.NotNull;
 import java.util.Objects;
 
 public class Vacancy {
@@ -12,7 +11,8 @@ public class Vacancy {
     private Double experience_years_require;
     private int developer_id;
 
-    public Vacancy() {}
+    public Vacancy() {
+    }
 
     public Vacancy(int id, String position,
                    Double salary_from,
@@ -87,15 +87,19 @@ public class Vacancy {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Vacancy vacancy = (Vacancy) o;
         return getId() == vacancy.getId() &&
                 getDeveloper_id() == vacancy.getDeveloper_id() &&
                 Objects.equals(getPosition(), vacancy.getPosition()) &&
                 Objects.equals(getSalary_from(), vacancy.getSalary_from()) &&
                 Objects.equals(getSalary_to(), vacancy.getSalary_to()) &&
-                getVacancy_state() == vacancy.getVacancy_state() &&
+                Objects.equals(getVacancy_state(), vacancy.getVacancy_state()) &&
                 Objects.equals(getExperience_years_require(), vacancy.getExperience_years_require());
     }
 

@@ -3,16 +3,26 @@ package com.company.controller;
 import com.company.model.Vacancy;
 import com.company.service.UserService;
 import com.company.service.VacancyService;
+import java.util.List;
+
+
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
-import java.util.List;
 
+
+/**
+ *
+ */
 @Controller
 
 public class VacancyController {
@@ -107,8 +117,7 @@ public class VacancyController {
 
     @ModelAttribute("developerIDList")
     public List<String> getUserDeveloperList() {
-        List<String> idList = userService.getDeveloperId();
         // добавляем id только тех юзеров, кто является developer
-        return idList;
+        return userService.getDeveloperId();
     }
 }

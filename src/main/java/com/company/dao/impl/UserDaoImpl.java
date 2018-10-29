@@ -20,50 +20,50 @@ public class UserDaoImpl implements UserDao {
 
     @Transactional
     public User getUser(int id) {
-        User user = jdbcTemplate.queryForObject("select * from user where id = ?",
-                new Object[] { id }, new UserRowMapper());
-        return user;
+        return jdbcTemplate.queryForObject("select * from user where id = ?",
+                new Object[]{id}, new UserRowMapper());
     }
+
     @Transactional
     public List<User> getAllUsers() {
-        List<User> user = jdbcTemplate.query("select * from user",
+        return jdbcTemplate.query("select * from user",
                 new UserRowMapper());
-        return user;
-    }
-    public List<User> getSortedUsersBySurname(){
-        List<User> user = jdbcTemplate.query("select * from user order by surname",  new UserRowMapper());
-        return user;
-    }
-    public List<User> getSortedUsersDESCsurname(){
-        List<User> user = jdbcTemplate.query("select * from user order by surname desc",  new UserRowMapper());
-        return user;
     }
 
-    public List<User> getSortedUsersByName(){
-        List<User> user = jdbcTemplate.query("select * from user order by name",  new UserRowMapper());
-        return user;
-    }
-    public List<User> getSortedUsersDESCname(){
-        List<User> user = jdbcTemplate.query("select * from user order by name desc",  new UserRowMapper());
-        return user;
+    public List<User> getSortedUsersBySurname() {
+        return jdbcTemplate.query("select * from user order by surname", new UserRowMapper());
     }
 
-    public List<User> getSortedUsersByID(){
-        List<User> user = jdbcTemplate.query("select * from user order by id",  new UserRowMapper());
-        return user;
+    public List<User> getSortedUsersDESCsurname() {
+        return jdbcTemplate.query("select * from user order by surname desc", new UserRowMapper());
     }
-    public List<User> getSortedUsersDESCid(){
-        List<User> user = jdbcTemplate.query("select * from user order by id desc",  new UserRowMapper());
-        return user;
+
+    public List<User> getSortedUsersByName() {
+        return jdbcTemplate.query("select * from user order by name", new UserRowMapper());
     }
+
+    public List<User> getSortedUsersDESCname() {
+        return jdbcTemplate.query("select * from user order by name desc", new UserRowMapper());
+    }
+
+    public List<User> getSortedUsersByID() {
+        return jdbcTemplate.query("select * from user order by id", new UserRowMapper());
+    }
+
+    public List<User> getSortedUsersDESCid() {
+        return jdbcTemplate.query("select * from user order by id desc", new UserRowMapper());
+    }
+
     @Transactional
-    public List<String> getDeveloperId(){
+    public List<String> getDeveloperId() {
         return jdbcTemplate.queryForList("select id from user ", String.class);
     }
+
     @Transactional
-    public List<String> getInterviewerId(){
+    public List<String> getInterviewerId() {
         return jdbcTemplate.queryForList("select id from user where user_role = 'interviewer'", String.class);
     }
+
     @Transactional
     public int addUser(User user) {
         SimpleJdbcInsert simpleJdbcInsert = new SimpleJdbcInsert(jdbcTemplate);
@@ -81,12 +81,11 @@ public class UserDaoImpl implements UserDao {
     @Transactional
     public int updateUser(User user) {
         String sql = "update user set name = ?, surname = ?, email = ?, password = ?, user_role = ? where id = ?";
-        int resp = jdbcTemplate.update(sql,
+        return jdbcTemplate.update(sql,
                 user.getFirstName(), user.getSurname(),
                 user.getEmail(), user.getPassword(),
                 user.getUserRole(),
                 user.getId());
-        return resp;
     }
 
     @Transactional

@@ -7,6 +7,9 @@ import org.springframework.jdbc.core.RowMapper;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ *
+ */
 public class InterviewFeedbackRowMapper implements RowMapper<InterviewFeedback> {
 
     public InterviewFeedback mapRow(ResultSet rs, int row) throws SQLException {
