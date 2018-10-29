@@ -12,28 +12,28 @@ public class InterviewFeedbackServiceImpl implements InterviewFeedbackService {
     private InterviewFeedbackDao interviewFeedbackDao;
 
     public InterviewFeedback getInterviewFeedback(int id) {
-        return interviewFeedbackDao.getInterviewFeedback(id);
+        return interviewFeedbackDao.getByPK(id);
     }
 
     public List<InterviewFeedback> getAllInterviewFeedbacks() {
-        return interviewFeedbackDao.getAllInterviewFeedbacks();
+        return interviewFeedbackDao.getAll();
     }
     public List<String> getFeedbackStates(){return interviewFeedbackDao.getAllFeedbackStates();}
 
 
     @Override
     public int addInterviewFeedback(InterviewFeedback user) {
-        return interviewFeedbackDao.addInterviewFeedback(user);
+        return interviewFeedbackDao.create(user);
     }
 
     @Override
     public int updateInterviewFeedback(InterviewFeedback user) {
-        return interviewFeedbackDao.updateInterviewFeedback(user);
+        return interviewFeedbackDao.update(user);
     }
 
     @Override
     public int deleteInterviewFeedback(int id) {
-        return interviewFeedbackDao.deleteInterviewFeedback(id);
+        return interviewFeedbackDao.delete(id);
     }
 
     public InterviewFeedbackDao getInterviewFeedbackDao() {

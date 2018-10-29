@@ -13,11 +13,11 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     public User getUser(int id) {
-        return userDao.getUser(id);
+        return userDao.getByPK(id);
     }
 
     public List<User> getAllUsers() {
-        return userDao.getAllUsers();
+        return userDao.getAll();
     }
 
 
@@ -31,17 +31,17 @@ public class UserServiceImpl implements UserService {
     public List<String> getInterviewerId(){return userDao.getInterviewerId();}
     @Override
     public int addUser(User user) {
-        return userDao.addUser(user);
+        return userDao.create(user);
     }
 
     @Override
     public int updateUser(User user) {
-        return userDao.updateUser(user);
+        return userDao.update(user);
     }
 
     @Override
     public int deleteUser(int id) {
-        return userDao.deleteUser(id);
+        return userDao.delete(id);
     }
 
     public UserDao getUserDao() {

@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-         pageEncoding="ISO-8859-1"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+         pageEncoding="ISO-8859-1" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <html>
 <body>
 <a href="<%=request.getContextPath()%>/">Menu</a>
 <form action="/interviewFeedback/add" method="get">
-    <p><button>Add</button></p>
+    <p>
+        <button>Add</button>
+    </p>
 </form>
 <c:if test="${not empty msg}">
     ${msg}
@@ -25,16 +27,17 @@
             <tbody>
             <c:forEach var="interviewFeedback" items="${interviewFeedback}">
                 <tr>
-                    <td>${interviewFeedback.interview_id}</td>
-                    <td>${interviewFeedback.interviewer_id}</td>
-                    <td>${interviewFeedback.feedback_state}</td>
+                    <td>${interviewFeedback.interviewId}</td>
+                    <td>${interviewFeedback.interviewerId}</td>
+                    <td>${interviewFeedback.feedbackState}</td>
                     <td>${interviewFeedback.reason}</td>
-                    <td><a href="<%=request.getContextPath()%>/interviewFeedback/update/${interviewFeedback.interview_id}">Update</a>
+                    <td>
+                        <a href="<%=request.getContextPath()%>/interviewFeedback/update/${interviewFeedback.interviewId}">Update</a>
                         &nbsp;
-                        <a   href="<%=request.getContextPath()%>/interviewFeedback/delete/${interviewFeedback.interview_id}"
-                             onclick="return confirm('Do you really want to delete?')">Delete</a>
+                        <a href="<%=request.getContextPath()%>/interviewFeedback/delete/${interviewFeedback.interviewId}"
+                           onclick="return confirm('Do you really want to delete?')">Delete</a>
                         &nbsp;
-                        <a href="<%=request.getContextPath()%>/interviewFeedback/${interviewFeedback.interview_id}">View</a>
+                        <a href="<%=request.getContextPath()%>/interviewFeedback/${interviewFeedback.interviewId}">View</a>
                     </td>
                 </tr>
             </c:forEach>

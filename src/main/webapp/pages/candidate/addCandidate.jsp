@@ -22,9 +22,7 @@
     </style>
 </head>
 <body>
-<%--<c:if test="${not empty msg}">--%>
-<%--${msg}--%>
-<%--</c:if>--%>
+
 <springForm:form method="POST" modelAttribute="candidate"
                  action="/candidate/add.do">
     <table>
@@ -45,15 +43,15 @@
         </tr>
         <tr>
             <td>Expected salary:</td>
-            <td><springForm:input path="expected_salary"/></td>
-            <td><springForm:errors path="expected_salary" cssClass="error"/></td>
+            <td><springForm:input path="expectedSalary"/></td>
+            <td><springForm:errors path="expectedSalary" cssClass="error"/></td>
         </tr>
         <tr>
             <td>
-                <form:label path="candidate_state">State:</form:label>
+                <form:label path="candidateState">State:</form:label>
             </td>
             <td>
-                <form:select path="candidate_state" size="1">
+                <form:select path="candidateState" size="1">
                     <form:options items="${candidateStateList}"/>
                 </form:select>
             </td>
@@ -63,7 +61,7 @@
             <td colspan="3"><input type="submit" value="Add Candidate"></td>
         </tr>
     </table>
-
+    <br/><a href="<%=request.getContextPath()%>/allCandidates">Back</a>
 </springForm:form>
 
 </body>

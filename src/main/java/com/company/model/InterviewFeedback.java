@@ -2,33 +2,33 @@ package com.company.model;
 
 public class InterviewFeedback {
 
-    private int interview_id;
-    private int interviewer_id;
-    private String feedback_state;
+    private int interviewId;
+    private int interviewerId;
+    private String feedbackState;
     private String reason;
 
-    public int getInterview_id() {
-        return interview_id;
+    public int getInterviewId() {
+        return interviewId;
     }
 
-    public void setInterview_id(int interview_id) {
-        this.interview_id = interview_id;
+    public void setInterviewId(int interviewId) {
+        this.interviewId = interviewId;
     }
 
-    public int getInterviewer_id() {
-        return interviewer_id;
+    public int getInterviewerId() {
+        return interviewerId;
     }
 
-    public void setInterviewer_id(int interviewer_id) {
-        this.interviewer_id = interviewer_id;
+    public void setInterviewerId(int interviewerId) {
+        this.interviewerId = interviewerId;
     }
 
-    public String getFeedback_state() {
-        return feedback_state;
+    public String getFeedbackState() {
+        return feedbackState;
     }
 
-    public void setFeedback_state(String feedback_state) {
-        this.feedback_state = feedback_state;
+    public void setFeedbackState(String feedbackState) {
+        this.feedbackState = feedbackState;
     }
 
     public String getReason() {

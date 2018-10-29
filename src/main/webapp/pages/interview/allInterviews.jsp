@@ -30,10 +30,10 @@
             <c:forEach var="interview" items="${interview}">
                 <tr>
                     <td>${interview.id}</td>
-                    <td>${interview.plan_date}</td>
-                    <td>${interview.fact_date}</td>
-                    <td>${interview.vacancy_id}</td>
-                    <td>${interview.candidate_id}</td>
+                    <td>${interview.planDate}</td>
+                    <td>${interview.factDate}</td>
+                    <td>${interview.vacancyId}</td>
+                    <td>${interview.candidateId}</td>
                     <td>
                         <a href="<%=request.getContextPath()%>/interview/update/${interview.id}">Update</a>
                         &nbsp;

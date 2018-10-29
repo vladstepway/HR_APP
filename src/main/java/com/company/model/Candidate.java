@@ -14,19 +14,19 @@ public class Candidate {
     private String surname;
     @Date
     private String birthday;
-    private Double expected_salary;
-    private String candidate_state;
+    private Double expectedSalary;
+    private String candidateState;
 
     public Candidate() {}
 
     public Candidate(int id, String name, String surname, String birthday,
-                     Double expected_salary, String candidate_state) {
+                     Double expectedSalary, String candidateState) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.birthday = birthday;
-        this.expected_salary = expected_salary;
-        this.candidate_state = candidate_state;
+        this.expectedSalary = expectedSalary;
+        this.candidateState = candidateState;
     }
 
     public int getId() {
@@ -61,20 +61,20 @@ public class Candidate {
         this.birthday = birthday;
     }
 
-    public Double getExpected_salary() {
-        return expected_salary;
+    public Double getExpectedSalary() {
+        return expectedSalary;
     }
 
-    public void setExpected_salary(Double expected_salary) {
-        this.expected_salary = expected_salary;
+    public void setExpectedSalary(Double expectedSalary) {
+        this.expectedSalary = expectedSalary;
     }
 
-    public String getCandidate_state() {
-        return candidate_state;
+    public String getCandidateState() {
+        return candidateState;
     }
 
-    public void setCandidate_state(String candidate_state) {
-        this.candidate_state = candidate_state;
+    public void setCandidateState(String candidateState) {
+        this.candidateState = candidateState;
     }
 
 

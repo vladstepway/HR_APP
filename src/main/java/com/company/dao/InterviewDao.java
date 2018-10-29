@@ -4,16 +4,18 @@ import com.company.model.Interview;
 
 import java.util.List;
 
-public interface InterviewDao {
-     Interview getInterview(int id);
+public interface InterviewDao extends GenericDao<Interview, Integer> {
 
-     List<Interview> getAllInterviews();
-     List<String> getAllInterviewsID();
+    int create(Interview interview);
 
+    Interview getByPK(Integer key);
 
-     int addInterview(Interview interview);
+    int update(Interview object);
 
-     int updateInterview(Interview interview);
+    int delete(Integer id);
 
-     int deleteInterview(int id);
+    List<Interview> getAll();
+
+    List<String> getAllInterviewsID();
+
 }

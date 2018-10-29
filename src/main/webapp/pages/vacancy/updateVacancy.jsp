@@ -21,28 +21,28 @@
 
         <tr>
             <td> Salary from :</td>
-            <td><input name="sal_from" value="${vacancy.salary_from}" type="text"/></td>
+            <td><input name="sal_from" value="${vacancy.salaryFrom}" type="text"/></td>
         </tr>
         <tr>
             <td>Salary to:</td>
-            <td><input name="sal_to" value="${vacancy.salary_to}"
+            <td><input name="sal_to" value="${vacancy.salaryTo}"
                        type="text"/></td>
         </tr>
 
         <tr>
             <td>Vacancy state:</td>
-            <td><input name="vac_state" value="${vacancy.vacancy_state}"
+            <td><input name="vac_state" value="${vacancy.vacancyState}"
                        type="text"/></td>
         </tr>
         <tr>
             <td>Experience:</td>
-            <td><input name="exp_years" value="${vacancy.experience_years_require}"
+            <td><input name="exp_years" value="${vacancy.experienceYearsRequire}"
                        type="text"/></td>
         </tr>
         <tr>
             <td>Creator of vacancy:</td>
             <td>
-                <form:select path="vacancy.developer_id" size="1">
+                <form:select path="vacancy.creatorId" size="1">
                     <form:options items="${developerIDList}"/>
                 </form:select>
 

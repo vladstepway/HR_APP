@@ -17,11 +17,11 @@
     <tr>
         <td>${vacancy.id}</td>
         <td>${vacancy.position}</td>
-        <td>${vacancy.salary_from}</td>
-        <td>${vacancy.salary_to}</td>
-        <td>${vacancy.vacancy_state}</td>
-        <td>${vacancy.experience_years_require}</td>
-        <td>${vacancy.developer_id}</td>
+        <td>${vacancy.salaryFrom}</td>
+        <td>${vacancy.salaryTo}</td>
+        <td>${vacancy.vacancyState}</td>
+        <td>${vacancy.experienceYearsRequire}</td>
+        <td>${vacancy.creatorId}</td>
     </tr>
 </table>
 <a href="<%=request.getContextPath()%>/allVacancies">Back</a>

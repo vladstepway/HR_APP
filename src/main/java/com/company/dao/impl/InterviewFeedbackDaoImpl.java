@@ -15,14 +15,14 @@ public class InterviewFeedbackDaoImpl implements InterviewFeedbackDao {
     private JdbcTemplate jdbcTemplate;
 
     @Transactional
-    public InterviewFeedback getInterviewFeedback(int interview_id) {
+    public InterviewFeedback getByPK(Integer interviewId) {
         return jdbcTemplate.queryForObject("select * from" +
                         " interview_feedback where interview_id = ?",
-                new Object[]{interview_id}, new InterviewFeedbackRowMapper());
+                new Object[]{interviewId}, new InterviewFeedbackRowMapper());
     }
 
     @Transactional
-    public List<InterviewFeedback> getAllInterviewFeedbacks() {
+    public List<InterviewFeedback> getAll() {
         return jdbcTemplate.query("select * from interview_feedback",
                 new InterviewFeedbackRowMapper());
     }
@@ -34,29 +34,28 @@ public class InterviewFeedbackDaoImpl implements InterviewFeedbackDao {
     }
 
     @Transactional
-    public int addInterviewFeedback(InterviewFeedback interviewFeedback) {
-        String sql = "insert into interview_feedback (interviewer_id , feedback_state , " +
-                "reason, interview_id) values (?, ?, ?, ?)";
-        return jdbcTemplate.update(sql,
-                interviewFeedback.getInterviewer_id(), interviewFeedback.getFeedback_state(),
+    public int create(InterviewFeedback interviewFeedback) {
+        return jdbcTemplate.update("insert into interview_feedback (interviewer_id , " +
+                        "feedback_state , reason, interview_id) values (?, ?, ?, ?)",
+                interviewFeedback.getInterviewerId(), interviewFeedback.getFeedbackState(),
                 interviewFeedback.getReason(),
-                interviewFeedback.getInterview_id());
+                interviewFeedback.getInterviewId());
     }
 
     @Transactional
-    public int updateInterviewFeedback(InterviewFeedback interviewFeedback) {
+    public int update(InterviewFeedback interviewFeedback) {
         return jdbcTemplate.update("update interview_feedback set interviewer_id = ?, " +
                         "feedback_state = ?, reason = ? where interview_id = ?",
-                interviewFeedback.getInterviewer_id(),
-                interviewFeedback.getFeedback_state(),
+                interviewFeedback.getInterviewerId(),
+                interviewFeedback.getFeedbackState(),
                 interviewFeedback.getReason(),
-                interviewFeedback.getInterview_id());
+                interviewFeedback.getInterviewId());
     }
 
     @Transactional
-    public int deleteInterviewFeedback(int interview_id) {
+    public int delete(Integer interviewId) {
         return jdbcTemplate.update("delete from interview_feedback where interview_id = ?",
-                interview_id);
+                interviewId);
     }
 
 }

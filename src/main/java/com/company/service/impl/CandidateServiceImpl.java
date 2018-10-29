@@ -13,32 +13,34 @@ public class CandidateServiceImpl implements CandidateService {
     private CandidateDao candidateDao;
 
     public Candidate getCandidate(int id) {
-        return candidateDao.getCandidate(id);
+        return candidateDao.getByPK(id);
     }
 
     public List<Candidate> getAllCandidates() {
-        return candidateDao.getAllCandidates();
+        return candidateDao.getAll();
     }
-    public List<String> getAllCandidatesID(){ return  candidateDao.getAllCandidatesID(); }
-    public List<String> getListOfStates(){return candidateDao.getListOfStates();}
+
+    public List<String> getAllCandidatesID() {
+        return candidateDao.getAllCandidatesID();
+    }
+
+    public List<String> getListOfStates() {
+        return candidateDao.getListOfStates();
+    }
 
     @Override
     public int addCandidate(Candidate candidate) {
-        return candidateDao.addCandidate(candidate);
+        return candidateDao.create(candidate);
     }
 
     @Override
     public int updateCandidate(Candidate candidate) {
-        return candidateDao.updateCandidate(candidate);
+        return candidateDao.update(candidate);
     }
 
     @Override
     public int deleteCandidate(int id) {
-        return candidateDao.deleteCandidate(id);
-    }
-
-    public CandidateDao getCandidateDao() {
-        return candidateDao;
+        return candidateDao.delete(id);
     }
 
 }

@@ -5,28 +5,28 @@ import java.util.Objects;
 public class Vacancy {
     private int id;
     private String position;
-    private Double salary_from;
-    private Double salary_to;
-    private String vacancy_state;
-    private Double experience_years_require;
-    private int developer_id;
+    private Double salaryFrom;
+    private Double salaryTo;
+    private String vacancyState;
+    private Double experienceYearsRequire;
+    private int creatorId;
 
     public Vacancy() {
     }
 
     public Vacancy(int id, String position,
-                   Double salary_from,
-                   Double salary_to,
-                   String vacancy_state,
-                   Double experience_years_require,
-                   int developer_id) {
+                   Double salaryFrom,
+                   Double salaryTo,
+                   String vacancyState,
+                   Double experienceYearsRequire,
+                   int creatorId) {
         this.id = id;
         this.position = position;
-        this.salary_from = salary_from;
-        this.salary_to = salary_to;
-        this.vacancy_state = vacancy_state;
-        this.experience_years_require = experience_years_require;
-        this.developer_id = developer_id;
+        this.salaryFrom = salaryFrom;
+        this.salaryTo = salaryTo;
+        this.vacancyState = vacancyState;
+        this.experienceYearsRequire = experienceYearsRequire;
+        this.creatorId = creatorId;
     }
 
     public int getId() {
@@ -45,44 +45,44 @@ public class Vacancy {
         this.position = position;
     }
 
-    public Double getSalary_from() {
-        return salary_from;
+    public Double getSalaryFrom() {
+        return salaryFrom;
     }
 
-    public void setSalary_from(Double salary_from) {
-        this.salary_from = salary_from;
+    public void setSalaryFrom(Double salaryFrom) {
+        this.salaryFrom = salaryFrom;
     }
 
-    public Double getSalary_to() {
-        return salary_to;
+    public Double getSalaryTo() {
+        return salaryTo;
     }
 
-    public void setSalary_to(Double salary_to) {
-        this.salary_to = salary_to;
+    public void setSalaryTo(Double salaryTo) {
+        this.salaryTo = salaryTo;
     }
 
-    public String getVacancy_state() {
-        return vacancy_state;
+    public String getVacancyState() {
+        return vacancyState;
     }
 
-    public void setVacancy_state(String vacancy_state) {
-        this.vacancy_state = vacancy_state;
+    public void setVacancyState(String vacancyState) {
+        this.vacancyState = vacancyState;
     }
 
-    public Double getExperience_years_require() {
-        return experience_years_require;
+    public Double getExperienceYearsRequire() {
+        return experienceYearsRequire;
     }
 
-    public void setExperience_years_require(Double experience_years_require) {
-        this.experience_years_require = experience_years_require;
+    public void setExperienceYearsRequire(Double experienceYearsRequire) {
+        this.experienceYearsRequire = experienceYearsRequire;
     }
 
-    public int getDeveloper_id() {
-        return developer_id;
+    public int getCreatorId() {
+        return creatorId;
     }
 
-    public void setDeveloper_id(int developer_id) {
-        this.developer_id = developer_id;
+    public void setCreatorId(int creatorId) {
+        this.creatorId = creatorId;
     }
 
     @Override
@@ -95,23 +95,23 @@ public class Vacancy {
         }
         Vacancy vacancy = (Vacancy) o;
         return getId() == vacancy.getId() &&
-                getDeveloper_id() == vacancy.getDeveloper_id() &&
+                getCreatorId() == vacancy.getCreatorId() &&
                 Objects.equals(getPosition(), vacancy.getPosition()) &&
-                Objects.equals(getSalary_from(), vacancy.getSalary_from()) &&
-                Objects.equals(getSalary_to(), vacancy.getSalary_to()) &&
-                Objects.equals(getVacancy_state(), vacancy.getVacancy_state()) &&
-                Objects.equals(getExperience_years_require(), vacancy.getExperience_years_require());
+                Objects.equals(getSalaryFrom(), vacancy.getSalaryFrom()) &&
+                Objects.equals(getSalaryTo(), vacancy.getSalaryTo()) &&
+                Objects.equals(getVacancyState(), vacancy.getVacancyState()) &&
+                Objects.equals(getExperienceYearsRequire(), vacancy.getExperienceYearsRequire());
     }
 
     @Override
     public int hashCode() {
         return Objects.hash(getId(),
                 getPosition(),
-                getSalary_from(),
-                getSalary_to(),
-                getVacancy_state(),
-                getExperience_years_require(),
-                getDeveloper_id());
+                getSalaryFrom(),
+                getSalaryTo(),
+                getVacancyState(),
+                getExperienceYearsRequire(),
+                getCreatorId());
     }
 
 

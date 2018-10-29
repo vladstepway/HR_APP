@@ -4,17 +4,17 @@ import com.company.model.InterviewFeedback;
 
 import java.util.List;
 
-public interface InterviewFeedbackDao {
-    
-    InterviewFeedback getInterviewFeedback(int interview_id);
+public interface InterviewFeedbackDao extends GenericDao<InterviewFeedback, Integer> {
 
-    List<InterviewFeedback> getAllInterviewFeedbacks();
+    InterviewFeedback getByPK(Integer interviewId);
+
+    List<InterviewFeedback> getAll();
 
     List<String> getAllFeedbackStates();
-    
-    int addInterviewFeedback(InterviewFeedback interviewFeedback);
 
-    int updateInterviewFeedback(InterviewFeedback interviewFeedback);
+    int create(InterviewFeedback interviewFeedback);
 
-    int deleteInterviewFeedback(int interview_id);
+    int update(InterviewFeedback interviewFeedback);
+
+    int delete(Integer interviewId);
 }

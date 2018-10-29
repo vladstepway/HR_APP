@@ -5,28 +5,23 @@ import com.company.model.Candidate;
 import com.company.model.mapper.CandidateRowMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class CandidateDaoImpl implements CandidateDao {
-    private static final String SELECT_QUERY_FOR_CANDIDATE =
-            "select * from candidate where id = ?";
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
     @Transactional
-    public Candidate getCandidate(int id) {
-        return jdbcTemplate.queryForObject(SELECT_QUERY_FOR_CANDIDATE,
+    public Candidate getByPK(Integer id) {
+        return jdbcTemplate.queryForObject("select * from candidate where id = ?",
                 new Object[]{id}, new CandidateRowMapper());
     }
 
     @Transactional
-    public List<Candidate> getAllCandidates() {
+    public List<Candidate> getAll() {
         return jdbcTemplate.query("select * from candidate",
                 new CandidateRowMapper());
     }
@@ -43,29 +38,29 @@ public class CandidateDaoImpl implements CandidateDao {
 
 
     @Transactional
-    public int addCandidate(Candidate candidate) {
-        SimpleJdbcInsert simpleJdbcInsert = new SimpleJdbcInsert(jdbcTemplate);
-        simpleJdbcInsert.withTableName("candidate").usingGeneratedKeyColumns("id");
-        Map<String, Object> parameters = new HashMap<String, Object>(5);
-        parameters.put("name", candidate.getName());
-        parameters.put("surname", candidate.getSurname());
-        parameters.put("birthday", candidate.getBirthday());
-        parameters.put("expected_salary", candidate.getExpected_salary());
-        parameters.put("candidate_state", candidate.getCandidate_state());
-        Number insertedId = simpleJdbcInsert.executeAndReturnKey(parameters);
-        return insertedId.intValue();
+    public int create(Candidate candidate) {
+        return jdbcTemplate.update("insert into candidate (name,surname,birthday," +
+                        "expected_salary,candidate_state)" +
+                        " values (?, ?, ?, ?,?)",
+                candidate.getName(),
+                candidate.getSurname(),
+                candidate.getBirthday(),
+                candidate.getExpectedSalary(),
+                candidate.getCandidateState());
     }
 
     @Transactional
-    public int updateCandidate(Candidate candidate) {
-        String sql = "update candidate set name = ?, surname = ?, birthday = ?, expected_salary = ?,candidate_state= ? where id = ?";
-        return jdbcTemplate.update(sql, candidate.getName(), candidate.getSurname(),
-                candidate.getBirthday(), candidate.getExpected_salary(), candidate.getCandidate_state(), candidate.getId());
+    public int update(Candidate candidate) {
+        return jdbcTemplate.update("update candidate set name = ?, surname = ?," +
+                        " birthday = ?, expected_salary = ?,candidate_state= ? where id = ?",
+                candidate.getName(), candidate.getSurname(),
+                candidate.getBirthday(), candidate.getExpectedSalary(),
+                candidate.getCandidateState(), candidate.getId());
 
     }
 
     @Transactional
-    public int deleteCandidate(int id) {
+    public int delete(Integer id) {
         return jdbcTemplate.update("delete from candidate where id = ?", id);
     }
 }

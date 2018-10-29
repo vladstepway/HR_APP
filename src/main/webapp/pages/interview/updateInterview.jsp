@@ -22,7 +22,7 @@
                 Plan date:
             </td>
             <td>
-                <input name="plan_date" value="${interview.plan_date}" type="text"/>
+                <input name="planDate" value="${interview.planDate}" type="text"/>
             </td>
         </tr>
         <tr>
@@ -30,22 +30,22 @@
                 Fact date:
             </td>
             <td>
-                <input name="fact_date" value="${interview.fact_date}" type="text"/>
+                <input name="factDate" value="${interview.factDate}" type="text"/>
             </td>
         </tr>
         <tr>
-            <td><form:label path="interview.vacancy_id">Vacancy id:</form:label></td>
+            <td><form:label path="interview.vacancyId">Vacancy id:</form:label></td>
             <td>
-                <form:select path="interview.vacancy_id" size="1">
+                <form:select path="interview.vacancyId" size="1">
                     <form:options items="${vacancyIdList}"/>
                 </form:select>
             </td>
         </tr>
         <tr>
-            <td><form:label path="interview.candidate_id">Candidate id:</form:label></td>
+            <td><form:label path="interview.candidateId">Candidate id:</form:label></td>
             <td>
 
-                <form:select path="interview.candidate_id" size="1">
+                <form:select path="interview.candidateId" size="1">
                     <form:options items="${candidateIdList}"/>
                 </form:select>
         </tr>

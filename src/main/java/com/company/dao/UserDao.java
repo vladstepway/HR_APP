@@ -4,27 +4,31 @@ import java.util.List;
 
 import com.company.model.User;
 
-public interface UserDao {
+public interface UserDao extends GenericDao<User, Integer> {
 
-    User getUser(int id);
+    User getByPK(Integer id);
 
-    List<User> getAllUsers();
+    List<User> getAll();
 
     List<User> getSortedUsersBySurname();
+
     List<User> getSortedUsersByName();
+
     List<User> getSortedUsersByID();
 
     List<User> getSortedUsersDESCsurname();
+
     List<User> getSortedUsersDESCname();
+
     List<User> getSortedUsersDESCid();
 
     List<String> getDeveloperId();
 
     List<String> getInterviewerId();
 
-    int addUser(User user);
+    int create(User user);
 
-    int updateUser(User user);
+    int update(User user);
 
-    int deleteUser(int id);
+    int delete(Integer id);
 }

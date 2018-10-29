@@ -16,13 +16,13 @@ public class InterviewDaoImpl implements InterviewDao {
     private JdbcTemplate jdbcTemplate;
 
     @Transactional
-    public Interview getInterview(int id) {
+    public Interview getByPK(Integer id) {
         return jdbcTemplate.queryForObject("select * from interview where id = ?",
                 new Object[]{id}, new InterviewRowMapper());
     }
 
     @Transactional
-    public List<Interview> getAllInterviews() {
+    public List<Interview> getAll() {
         return jdbcTemplate.query("select * from interview",
                 new InterviewRowMapper());
     }
@@ -34,26 +34,26 @@ public class InterviewDaoImpl implements InterviewDao {
     }
 
     @Transactional
-    public int addInterview(Interview interview) {
-        String sql = "insert into interview (plan_date , fact_date , " +
-                "vacancy_id, candidate_id) values (?, ?, ?, ?)";
-        return jdbcTemplate.update(sql,
-                interview.getPlan_date(), interview.getFact_date(),
-                interview.getVacancy_id(),
-                interview.getCandidate_id());
+    public int create(Interview interview) {
+        return jdbcTemplate.update("insert into interview (plan_date , fact_date , " +
+                        "vacancy_id, candidate_id) values (?, ?, ?, ?)",
+                interview.getPlanDate(), interview.getFactDate(),
+                interview.getVacancyId(),
+                interview.getCandidateId());
     }
 
+
     @Transactional
-    public int updateInterview(Interview interview) {
+    public int update(Interview interview) {
         return jdbcTemplate.update("update interview set plan_date = ?, fact_date = ?, " +
                         "vacancy_id = ?, candidate_id = ? where id = ?",
-                interview.getPlan_date(), interview.getFact_date(),
-                interview.getCandidate_id(), interview.getVacancy_id(),
+                interview.getPlanDate(), interview.getFactDate(),
+                interview.getCandidateId(), interview.getVacancyId(),
                 interview.getId());
     }
 
     @Transactional
-    public int deleteInterview(int id) {
+    public int delete(Integer id) {
         return jdbcTemplate.update("delete from interview where id = ?", id);
     }
 

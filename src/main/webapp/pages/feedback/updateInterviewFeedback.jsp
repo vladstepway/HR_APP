@@ -16,27 +16,27 @@
 
     <table>
         <tr>
-            <td><form:label path="interviewFeedback.interview_id">Interview id:</form:label></td>
+            <td><form:label path="interviewFeedback.interviewId">Interview id:</form:label></td>
             <td>
 
-                <form:select path="interviewFeedback.interview_id" size="1">
+                <form:select path="interviewFeedback.interviewId" size="1">
                     <form:options items="${interviewIdList}"/>
                 </form:select>
             </td>
         </tr>
         <tr>
-            <td><form:label path="interviewFeedback.interviewer_id">Interviewer id</form:label></td>
+            <td><form:label path="interviewFeedback.interviewerId">Interviewer id</form:label></td>
             <td>
 
-                <form:select path="interviewFeedback.interviewer_id" size="1">
+                <form:select path="interviewFeedback.interviewerId" size="1">
                     <form:options items="${interviewerIdList}"/>
                 </form:select>
             </td>
         </tr>
         <tr>
-            <td><form:label path="interviewFeedback.feedback_state">Feedback State</form:label></td>
+            <td><form:label path="interviewFeedback.feedbackState">Feedback State</form:label></td>
             <td>
-                <form:select path="interviewFeedback.feedback_state" size="1">
+                <form:select path="interviewFeedback.feedbackState" size="1">
                     <form:options items="${feedbackStatesList}"/>
                 </form:select>
             </td>

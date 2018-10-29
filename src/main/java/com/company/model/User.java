@@ -10,13 +10,13 @@ public class User {
 
     private int id;
 
-    @NotNull(message="FirstName cannot be empty")
-    @Size(min=2, max=30)
+    @NotNull(message = "FirstName cannot be empty")
+    @Size(min = 2, max = 30)
     private String firstName;
 
     @NotNull
     @NotEmpty
-    @Size(min=2, max=30)
+    @Size(min = 2, max = 30)
     private String surname;
 
     @NotEmpty

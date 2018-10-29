@@ -4,20 +4,19 @@ import com.company.model.Vacancy;
 
 import java.util.List;
 
-public interface VacancyDao {
+public interface VacancyDao extends GenericDao<Vacancy, Integer> {
 
-    Vacancy getVacancy(int id);
+    Vacancy getByPK(Integer id);
 
-    List<Vacancy> getAllVacancy();
+    List<Vacancy> getAll();
 
     List<String> getAllVacancyID();
 
     List<String> getAllVacancyPosition();
 
+    int create(Vacancy vacancy);
 
-    int addVacancy(Vacancy vacancy);
+    int update(Vacancy vacancy);
 
-    int updateVacancy(Vacancy vacancy);
-
-    int deleteVacancy(int id);
+    int delete(Integer id);
 }

@@ -14,8 +14,8 @@ public class CandidateRowMapper implements RowMapper<Candidate> {
         candidate.setName(resultSet.getString("name"));
         candidate.setSurname(resultSet.getString("surname"));
         candidate.setBirthday(resultSet.getString("birthday"));
-        candidate.setExpected_salary(resultSet.getDouble("expected_salary"));
-        candidate.setCandidate_state(resultSet.getString("candidate_state"));
+        candidate.setExpectedSalary(resultSet.getDouble("expected_salary"));
+        candidate.setCandidateState(resultSet.getString("candidate_state"));
         return candidate;
     }
 }

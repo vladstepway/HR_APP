@@ -21,8 +21,6 @@ public class SkillController {
     @Autowired
     private SkillService skillService;
 
-
-
     @RequestMapping(value = "/allSkills", method = RequestMethod.GET)
     public String getAllSkills(ModelMap skillModel) {
         skillModel.addAttribute("skill", skillService.getAllSkills());

@@ -29,17 +29,17 @@
         </tr>
         <tr>
             <td>Salary from:</td>
-            <td><springForm:input path="salary_from"/></td>
-            <td><springForm:errors path="salary_from" cssClass="error"/></td>
+            <td><springForm:input path="salaryFrom"/></td>
+            <td><springForm:errors path="salaryFrom" cssClass="error"/></td>
         </tr>
         <tr>
             <td>Salary to:</td>
-            <td><springForm:input path="salary_to"/></td>
-            <td><springForm:errors path="salary_to" cssClass="error"/></td>
+            <td><springForm:input path="salaryTo"/></td>
+            <td><springForm:errors path="salaryTo" cssClass="error"/></td>
         </tr>
         <tr>
             <td>User Role:</td>
-            <td><springForm:select path="vacancy_state">
+            <td><springForm:select path="vacancyState">
                 <springForm:option value="OPENED" label="OPENED"/>
                 <springForm:option value="CLOSED" label="CLOSED"/>
             </springForm:select></td>
@@ -47,14 +47,14 @@
         </tr>
         <tr>
             <td>Experience:</td>
-            <td><springForm:input path="experience_years_require"/></td>
-            <td><springForm:errors path="experience_years_require" cssClass="error"/></td>
+            <td><springForm:input path="experienceYearsRequire"/></td>
+            <td><springForm:errors path="experienceYearsRequire" cssClass="error"/></td>
         </tr>
         <tr>
-            <td><form:label path="developer_id">Developer ID:</form:label></td>
+            <td><form:label path="creatorId">Developer ID:</form:label></td>
             <td>
 
-                <form:select path="developer_id" size="1">
+                <form:select path="creatorId" size="1">
                     <form:options items="${developerIDList}"/>
                 </form:select>
             </td>
@@ -64,6 +64,7 @@
         </tr>
     </table>
 
+    <br/><a href="<%=request.getContextPath()%>/allVacancies">Back</a>
 </springForm:form>
 
 </body>

@@ -15,32 +15,32 @@ public class SkillDaoImpl implements SkillDao {
     private JdbcTemplate jdbcTemplate;
 
     @Transactional
-    public Skill getSkill(String name) {
+    public Skill getByPK(String name) {
         return jdbcTemplate.queryForObject("select * from skill where name = ?",
                 new Object[]{name}, new SkillRowMapper());
     }
 
     @Transactional
-    public List<Skill> getAllSkills() {
+    public List<Skill> getAll() {
         return jdbcTemplate.query("select * from skill",
                 new SkillRowMapper());
     }
 
     @Transactional
-    public int addSkill(Skill skill) {
-        String sql = "insert into skill (name) values (?)";
-        return jdbcTemplate.update(sql, skill.getName());
+    public int create(Skill skill) {
+        return jdbcTemplate.update("insert into skill (name) value (?)",
+                skill.getName());
     }
 
     @Transactional
-    public int updateSkill(Skill skill) {
-        String sql = "update skill set name = ? where name = ?";
-        return jdbcTemplate.update(sql, skill.getName(), new Skill().getName());
+    public int update(Skill skill) {
+        return jdbcTemplate.update("update skill set name = ? where name = ?",
+                skill.getName(), skill.getName());
 
     }
 
     @Transactional
-    public int deleteSkill(String name) {
+    public int delete(String name) {
         return jdbcTemplate.update("delete from skill where name = ?", name);
     }
 }

@@ -13,12 +13,12 @@ public class VacancyServiceImpl implements VacancyService {
 
     @Override
     public Vacancy getVacancy(int id) {
-        return vacancyDao.getVacancy(id);
+        return vacancyDao.getByPK(id);
     }
 
     @Override
     public List<Vacancy> getAllVacancies() {
-        return vacancyDao.getAllVacancy();
+        return vacancyDao.getAll();
     }
 
     public List<String> getVacanciesID() {
@@ -32,16 +32,16 @@ public class VacancyServiceImpl implements VacancyService {
 
     @Override
     public int addVacancy(Vacancy vacancy) {
-        return vacancyDao.addVacancy(vacancy);
+        return vacancyDao.create(vacancy);
     }
 
     @Override
     public int updateVacancy(Vacancy vacancy) {
-        return vacancyDao.updateVacancy(vacancy);
+        return vacancyDao.update(vacancy);
     }
 
     @Override
     public int deleteVacancy(int id) {
-        return vacancyDao.deleteVacancy(id);
+        return vacancyDao.delete(id);
     }
 }

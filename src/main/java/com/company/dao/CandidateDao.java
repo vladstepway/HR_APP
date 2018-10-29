@@ -4,18 +4,21 @@ import com.company.model.Candidate;
 
 import java.util.List;
 
-public interface CandidateDao {
+public interface CandidateDao extends GenericDao<Candidate, Integer> {
 
-    Candidate getCandidate(int id);
+    int create(Candidate candidate);
 
-    List<Candidate> getAllCandidates();
+    Candidate getByPK(Integer key);
+
+    int update(Candidate object);
+
+    int delete(Integer id);
+
+    List<Candidate> getAll();
 
     List<String> getAllCandidatesID();
-     List<String> getListOfStates();
-    int addCandidate(Candidate candidate);
 
-    int updateCandidate(Candidate candidate);
+    List<String> getListOfStates();
 
-    int deleteCandidate(int id);
 
 }

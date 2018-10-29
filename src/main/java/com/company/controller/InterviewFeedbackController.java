@@ -98,14 +98,14 @@ public class InterviewFeedbackController {
         model.addAttribute("interviewFeedback", interviewFeedback);
 
         int resp = interviewFeedbackService.updateInterviewFeedback(interviewFeedback);
-        model.addAttribute("id", interviewFeedback.getInterview_id());
+        model.addAttribute("id", interviewFeedback.getInterviewId());
         if (resp > 0) {
-            model.addAttribute("msg", "InterviewFeedback with id : " + interviewFeedback.getInterview_id() + " updated successfully.");
+            model.addAttribute("msg", "InterviewFeedback with id : " + interviewFeedback.getInterviewId() + " updated successfully.");
             model.addAttribute("interviewFeedback", interviewFeedbackService.getAllInterviewFeedbacks());
             return "feedback/allInterviewFeedbacks";
         } else {
-            model.addAttribute("msg", "InterviewFeedback with id : " + interviewFeedback.getInterview_id() + " update failed.");
-            model.addAttribute("interviewFeedback", interviewFeedbackService.getInterviewFeedback(interviewFeedback.getInterview_id()));
+            model.addAttribute("msg", "InterviewFeedback with id : " + interviewFeedback.getInterviewId() + " update failed.");
+            model.addAttribute("interviewFeedback", interviewFeedbackService.getInterviewFeedback(interviewFeedback.getInterviewId()));
             return "feedback/updateInterviewFeedback";
         }
     }

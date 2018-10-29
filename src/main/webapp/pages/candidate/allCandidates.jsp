@@ -35,8 +35,8 @@
                     <td>${candidate.name}</td>
                     <td>${candidate.surname}</td>
                     <td>${candidate.birthday}</td>
-                    <td>${candidate.expected_salary}</td>
-                    <td>${candidate.candidate_state}</td>
+                    <td>${candidate.expectedSalary}</td>
+                    <td>${candidate.candidateState}</td>
                     <td><a
                             href="<%=request.getContextPath()%>/candidate/update/${candidate.id}">Update</a>
                         &nbsp; <a

@@ -31,12 +31,12 @@
         </tr>
         <tr>
             <td>Expected Salary:</td>
-            <td><springForm:input path="candidate.expected_salary"/></td>
-            <td><springForm:errors path="candidate.expected_salary" cssClass="error"/></td>
+            <td><springForm:input path="candidate.expectedSalary"/></td>
+            <td><springForm:errors path="candidate.expectedSalary" cssClass="error"/></td>
         </tr>
         <tr>
             <td>State:</td>
-            <td><form:select path="candidate.candidate_state" size="1">
+            <td><form:select path="candidate.candidateState" size="1">
                 <form:options items="${candidateStateList}"/>
             </form:select>
             </td>

@@ -30,6 +30,7 @@
             <td colspan="3"><input type="submit" value="Add Skill"></td>
         </tr>
     </table>
+    <br/><a href="<%=request.getContextPath()%>/allSkills">Back</a>
 
 </springForm:form>
 

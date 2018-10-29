@@ -8,7 +8,7 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>Ad feedback</title>
+    <title>Add feedback</title>
     <style>
         .error {
             color: #ff1c21;
@@ -23,26 +23,26 @@
                  action="/interviewFeedback/add.do">
     <table>
         <tr>
-            <td><form:label path="interview_id">Interview id</form:label>:</td>
+            <td><form:label path="interviewId">Interview id</form:label>:</td>
             <td>
 
-                <form:select path="interview_id" size="1">
+                <form:select path="interviewId" size="1">
                     <form:options items="${interviewIdList}"/>
                 </form:select>
         </tr>
         <tr>
-            <td><form:label path="interviewer_id">Interviewer id</form:label>:</td>
+            <td><form:label path="interviewerId">Interviewer id</form:label>:</td>
             <td>
 
-                <form:select path="interviewer_id" size="1">
+                <form:select path="interviewerId" size="1">
                     <form:options items="${interviewerIdList}"/>
                 </form:select>
         </tr>
         <tr>
-            <td><form:label path="feedback_state">Feedback state</form:label>:</td>
+            <td><form:label path="feedbackState">Feedback state</form:label>:</td>
             <td>
 
-                <form:select path="feedback_state" size="1">
+                <form:select path="feedbackState" size="1">
                     <form:options items="${feedbackStatesList}"/>
                 </form:select>
         </tr>
@@ -56,7 +56,7 @@
             <td colspan="3"><input type="submit" value="Add interviewFeedback"></td>
         </tr>
     </table>
-
+    <br/><a href="<%=request.getContextPath()%>/allInterviewFeedbacks">Back</a>
 </springForm:form>
 
 </body>

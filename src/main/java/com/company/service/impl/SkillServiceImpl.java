@@ -12,26 +12,26 @@ public class SkillServiceImpl implements SkillService {
     private SkillDao skillDao;
 
     public Skill getSkill(String name) {
-        return skillDao.getSkill(name);
+        return skillDao.getByPK(name);
     }
 
     public List<Skill> getAllSkills() {
-        return skillDao.getAllSkills();
+        return skillDao.getAll();
     }
 
     @Override
     public int addSkill(Skill skill) {
-        return skillDao.addSkill(skill);
+        return skillDao.create(skill);
     }
 
     @Override
     public int updateSkill(Skill skill) {
-        return skillDao.updateSkill(skill);
+        return skillDao.update(skill);
     }
 
     @Override
     public int deleteSkill(String name) {
-        return skillDao.deleteSkill(name);
+        return skillDao.delete(name);
     }
 
     public SkillDao getSkillDao() {

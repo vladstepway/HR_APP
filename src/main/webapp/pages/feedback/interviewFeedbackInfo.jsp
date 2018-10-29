@@ -12,9 +12,9 @@
         <td>Reason</td>
     </tr>
     <tr>
-        <td>${interviewFeedback.interview_id}</td>
-        <td>${interviewFeedback.interviewer_id}</td>
-        <td>${interviewFeedback.feedback_state}</td>
+        <td>${interviewFeedback.interviewId}</td>
+        <td>${interviewFeedback.interviewerId}</td>
+        <td>${interviewFeedback.feedbackState}</td>
         <td>${interviewFeedback.reason}</td>
     </tr>
 </table>

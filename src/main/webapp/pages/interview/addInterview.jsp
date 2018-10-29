@@ -24,25 +24,25 @@
     <table>
         <tr>
             <td>Plan date:</td>
-            <td><springForm:input path="plan_date" placeholder="yyyy-MM-dd"/></td>
-            <td><springForm:errors path="plan_date" cssClass="error"/></td>
+            <td><springForm:input path="planDate" placeholder="yyyy-MM-dd"/></td>
+            <td><springForm:errors path="planDate" cssClass="error"/></td>
         </tr>
         <tr>
             <td>Fact date:</td>
-            <td><springForm:input path="fact_date" placeholder="yyyy-MM-dd"/></td>
-            <td><springForm:errors path="fact_date" cssClass="error"/></td>
+            <td><springForm:input path="factDate" placeholder="yyyy-MM-dd"/></td>
+            <td><springForm:errors path="factDate" cssClass="error"/></td>
         </tr>
         <tr>
-            <td><form:label path="vacancy_id">Vacancy id</form:label></td>
+            <td><form:label path="vacancyId">Vacancy id</form:label></td>
             <td>
-                <form:select path="vacancy_id" size="1">
+                <form:select path="vacancyId" size="1">
                     <form:options items="${vacancyIdList}"/>
                 </form:select>
         </tr>
         <tr>
-            <td><form:label path="candidate_id">Candidate id:</form:label></td>
+            <td><form:label path="candidateId">Candidate id:</form:label></td>
             <td>
-                <form:select path="candidate_id" size="1">
+                <form:select path="candidateId" size="1">
                     <form:options items="${candidateIdList}"/>
                 </form:select>
         </tr>
@@ -50,6 +50,7 @@
             <td colspan="3"><input type="submit" value="Add Interview"></td>
         </tr>
     </table>
+    <br/><a href="<%=request.getContextPath()%>/allInterviews">Back</a>
 
 </springForm:form>
 

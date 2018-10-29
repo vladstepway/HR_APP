@@ -6,14 +6,14 @@ public class Interview {
     private int id;
 
     @Date
-    private String plan_date;
+    private String planDate;
     @Date
-    private String fact_date;
+    private String factDate;
 
     @NotNull
-    private int vacancy_id;
+    private int vacancyId;
     @NotNull
-    private int candidate_id;
+    private int candidateId;
 
     public int getId() {
         return id;
@@ -23,36 +23,36 @@ public class Interview {
         this.id = id;
     }
 
-    public String getPlan_date() {
-        return plan_date;
+    public String getPlanDate() {
+        return planDate;
     }
 
-    public void setPlan_date(String plan_date) {
-        this.plan_date = plan_date;
+    public void setPlanDate(String planDate) {
+        this.planDate = planDate;
     }
 
-    public String getFact_date() {
-        return fact_date;
+    public String getFactDate() {
+        return factDate;
     }
 
-    public void setFact_date(String fact_date) {
-        this.fact_date = fact_date;
+    public void setFactDate(String factDate) {
+        this.factDate = factDate;
     }
 
-    public int getVacancy_id() {
-        return vacancy_id;
+    public int getVacancyId() {
+        return vacancyId;
     }
 
-    public void setVacancy_id(int vacancy_id) {
-        this.vacancy_id = vacancy_id;
+    public void setVacancyId(int vacancyId) {
+        this.vacancyId = vacancyId;
     }
 
-    public int getCandidate_id() {
-        return candidate_id;
+    public int getCandidateId() {
+        return candidateId;
     }
 
-    public void setCandidate_id(int candidate_id) {
-        this.candidate_id = candidate_id;
+    public void setCandidateId(int candidateId) {
+        this.candidateId = candidateId;
     }
 
 }

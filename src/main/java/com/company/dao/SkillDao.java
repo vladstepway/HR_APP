@@ -4,14 +4,15 @@ import com.company.model.Skill;
 
 import java.util.List;
 
-public interface SkillDao {
-    Skill getSkill(String name);
+public interface SkillDao extends GenericDao<Skill, String> {
 
-    List<Skill> getAllSkills();
+    Skill getByPK(String name);
 
-    int addSkill(Skill skill);
+    List<Skill> getAll();
 
-    int updateSkill(Skill skill);
+    int create(Skill skill);
 
-    int deleteSkill(String name);
+    int update(Skill skill);
+
+    int delete(String name);
 }
